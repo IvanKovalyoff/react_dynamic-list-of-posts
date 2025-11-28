@@ -73,8 +73,8 @@ export const App = () => {
     loadPosts();
   }, [selectedUserId]);
 
-  const handleUserSelect = (postId: number) => {
-    setSelectedUserId(selectedPostId === postId ? null : postId);
+  const handleUserSelect = (userId: number) => {
+    setSelectedUserId(userId);
   };
 
   const handlePostSelect = (postId: number) => {

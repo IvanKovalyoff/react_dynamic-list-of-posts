@@ -19,10 +19,10 @@ export const NewCommentForm: React.FC<PropsNewCommentForm> = ({ onSubmit }) => {
     email: false,
     body: false,
   });
-  const [isSubmiting, setIsSubmiting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(false);
 
-  const validateForn = () => {
+  const validateForm = () => {
     const newErrors: FormError = {
       name: !name.trim(),
       email: !email.trim(),
@@ -37,11 +37,11 @@ export const NewCommentForm: React.FC<PropsNewCommentForm> = ({ onSubmit }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateForn()) {
+    if (!validateForm()) {
       return;
     }
 
-    setIsSubmiting(true);
+    setIsSubmitting(true);
     setSubmitError(false);
 
     try {
@@ -51,7 +51,7 @@ export const NewCommentForm: React.FC<PropsNewCommentForm> = ({ onSubmit }) => {
     } catch (error) {
       setSubmitError(true);
     } finally {
-      setIsSubmiting(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -207,9 +207,9 @@ export const NewCommentForm: React.FC<PropsNewCommentForm> = ({ onSubmit }) => {
           <button
             type="submit"
             className={classNames('button', 'is-link', {
-              'is-loading': isSubmiting,
+              'is-loading': isSubmitting,
             })}
-            disabled={isSubmiting}
+            disabled={isSubmitting}
           >
             Add
           </button>
@@ -221,7 +221,7 @@ export const NewCommentForm: React.FC<PropsNewCommentForm> = ({ onSubmit }) => {
             type="reset"
             className="button is-link is-light"
             onClick={handleReset}
-            disabled={isSubmiting}
+            disabled={isSubmitting}
           >
             Clear
           </button>
