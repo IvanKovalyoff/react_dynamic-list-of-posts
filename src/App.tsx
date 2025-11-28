@@ -74,7 +74,7 @@ export const App = () => {
   }, [selectedUserId]);
 
   const handleUserSelect = (userId: number) => {
-    setSelectedUserId(userId);
+    setSelectedUserId(prevUserId => (prevUserId === userId ? null : userId));
   };
 
   const handlePostSelect = (postId: number) => {
